@@ -1,39 +1,69 @@
 <p align="center">
-  <img src="assets/nietzsche.svg" width="240" alt="Nietzsche, the code reviewer">
+  <img src="assets/nietzsche.svg" alt="Nietzsche, the code reviewer, in woodcut" width="240">
 </p>
 
-<h1 align="center">nietzsche</h1>
+<h1 align="center">Nietzsche</h1>
 
-<p align="center"><i>He has read your code. He is not impressed.</i></p>
+<p align="center"><b>Your code, judged. Then fixed.</b><br>
+An open-source agent skill that reads your repo, roasts it in Friedrich Nietzsche's voice, and ends with three real fixes you can ship today.</p>
 
-> "He who has a why to commit can bear almost any how."
+<p align="center">
+  <a href="https://nietzsche.dev">nietzsche.dev</a> ·
+  <a href="examples/self-roast.md">Example roast</a> ·
+  <a href="#install">Install</a> ·
+  <a href="#how-it-works">How it works</a>
+</p>
 
-An agent skill that roasts your repo in Friedrich Nietzsche's voice, then ends with **three real fixes** you can ship today.
-
-It runs inside the coding agent you already use (Claude Code, Codex, Cursor, Gemini CLI, OpenCode) on the model you already pay for. No API key, no server, no account.
-
-The first repo it roasted was its own:
-
-```text
-> roast my repo
-
-# Ecce Homo: How nietzsche Becomes What It Roasts
-*Or: The Physician Who Has Not Healed Himself*
-
-§1. Here is a skill whose sacred law is "Tests: do they exist, and do they test
-    anything real?" Then it walks into the town square with no tests, no evals
-    and no CI. The prophet preaches to the herd and never looks in a mirror.
-
-§5. `TARGETS="$*"` and then `for t in $TARGETS`. Your installer splits on
-    whitespace like the last man splits the bill: without thinking.
-
-## Three Fixes for the Overman
-
-2. Stop word-splitting install targets (install.sh, lines 26-37): any path
-   with a space in it, including a $HOME with a space, gets cut in two...
+```bash
+npx skills add senavoh/nietzsche
 ```
 
-Two of its three fixes were real bugs, and they shipped before the first push. [Read the full self-roast](examples/self-roast.md).
+Then open a project and ask your agent:
+
+> Roast my repo.
+
+Works with **Claude Code, Codex, Cursor, Gemini CLI, OpenCode**, and any agent that reads `SKILL.md` files. No API key, no account, nothing to host.
+
+---
+
+## A real roast. Of itself.
+
+The first repo it roasted was its own. Unedited excerpt:
+
+> ### Ecce Homo: How nietzsche Becomes What It Roasts
+> *Or: The Physician Who Has Not Healed Himself*
+>
+> **§1.** Here is a skill whose sacred law, in `SKILL.md`, is "Tests: do they exist, and do they test anything real?" Then it walks into the town square with no tests, no evals and no CI. The prophet preaches to the herd and never looks in a mirror.
+>
+> **§5.** `TARGETS="$*"` and then `for t in $TARGETS`. Your installer splits on whitespace like the last man splits the bill: without thinking.
+>
+> #### Three Fixes for the Overman
+>
+> 1. **Keep the clone path** (`SKILL.md`, line 17): save the temp directory in a variable and print it.
+> 2. **Stop word-splitting install targets** (`install.sh`, lines 26-37): loop over `"$@"` so paths with spaces survive.
+> 3. **Add a minimal CI and a regression fixture**: shellcheck, validate the plugin JSON, keep one golden roast.
+>
+> *Physician, roast thyself: what does not kill your install script will at least make it quote its variables.*
+
+Fixes 1 and 2 were real bugs, and they shipped before the first push. [Read all seven aphorisms](examples/self-roast.md).
+
+## Why Nietzsche
+
+Ask an AI to review your code and you get "Overall this is a well-structured project!" Nietzsche works differently:
+
+- **The roast is the hook. The fixes are the point.** It picks the three fixes before it writes a single joke, ranked by impact: bugs and missing tests before naming nitpicks.
+- **Every jab is real.** Each aphorism points at a file, line, dependency or commit it actually read. It re-opens each file to confirm a fix before handing it over.
+- **Read only.** It never edits your code, runs it, installs its dependencies, commits or pushes.
+- **Mock the code, never the person.** No jabs about anyone's identity, and it goes easy on a beginner's first project. If the code is good, it says so, grudgingly.
+
+## How it works
+
+1. **Read.** The tree, README, manifests, CI, entry points, tests and recent commits. Another repo gets a shallow clone into a temp folder, deleted afterwards.
+2. **Choose.** Three fixes, ranked by impact.
+3. **Check.** Re-opens each file to confirm the problem is there.
+4. **Roast.** Four to seven aphorisms under a title that parodies one of his books (*Beyond Good and Evil Code*, *Twilight of the Idols*, *Ecce Homo*), then the fixes in a plain voice you can paste into an issue.
+
+At the end it offers to save the roast as `NIETZSCHE.md`, and saves it only if you say yes.
 
 ## Install
 
@@ -43,7 +73,7 @@ Two of its three fixes were real bugs, and they shipped before the first push. [
 npx skills add senavoh/nietzsche
 ```
 
-The `skills` installer needs Node.js 22 or newer. On older Node versions, use the install script below.
+The `skills` installer needs Node.js 22 or newer. On older versions, use the install script.
 
 **Claude Code plugin**
 
@@ -68,21 +98,11 @@ curl -fsSL https://raw.githubusercontent.com/senavoh/nietzsche/main/install.sh |
 
 ## Use
 
-Open a project in your agent and say:
+- "Roast my repo"
+- "Roast vercel/next.js"
+- "Nietzsche this codebase"
 
-- "roast my repo"
-- "roast vercel/next.js"
-- "nietzsche this codebase"
-
-For another repo, the agent makes a shallow clone into a temp folder. Private repos work if `gh` is logged in.
-
-## What it does
-
-1. Reads the repo the way a reviewer would: the tree, README, manifests, CI, entry points, tests and recent commit messages.
-2. Chooses three fixes first and re-checks each one against the code, so they are real problems with a file and a concrete change.
-3. Writes 4 to 7 aphorisms where every jab points at something it actually saw.
-
-It's read only. It never edits your code, runs it, installs its dependencies, commits or pushes. At the end it offers to save the roast as `NIETZSCHE.md`, and saves it only if you say yes.
+Private repos work if `gh` is logged in.
 
 ## Roadmap
 
