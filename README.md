@@ -4,7 +4,7 @@
 
 <h1 align="center">Nietzsche</h1>
 
-<p align="center"><b>Your code, judged. Then fixed.</b><br>
+<p align="center"><b>The abyss reviews back.</b><br>
 An open-source agent skill that reads your repo, roasts it in Friedrich Nietzsche's voice, and ends with three real fixes you can ship today.</p>
 
 <p align="center">

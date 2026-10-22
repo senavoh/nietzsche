@@ -3,286 +3,210 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Nietzsche — your code, judged</title>
-<meta name="description" content="An open-source agent skill that roasts your repo in Nietzsche's voice, then gives you three real fixes. Works in Claude Code, Codex, Cursor, Gemini CLI and OpenCode. No API key.">
-<meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#f6f5f2" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0e0e0d" media="(prefers-color-scheme: dark)">
+<title>nietzsche — the abyss reviews back</title>
+<meta name="description" content="An open-source agent skill that reads your repo, roasts it in Nietzsche's voice, then hands you three real fixes. Claude Code, Codex, Cursor, Gemini CLI, OpenCode. No API key.">
+<meta name="theme-color" content="#d42a1f">
 <link rel="canonical" href="https://nietzsche.dev/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://nietzsche.dev/">
-<meta property="og:title" content="Nietzsche — your code, judged">
-<meta property="og:description" content="An open-source agent skill that roasts your repo in Nietzsche's voice, then gives you three real fixes.">
+<meta property="og:title" content="nietzsche — the abyss reviews back">
+<meta property="og:description" content="An agent skill that reads your repo, roasts it in aphorisms, then hands you three real fixes.">
 <link rel="icon" href="nietzsche.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap">
-<link rel="stylesheet" href="styles.css?v=1">
-<link rel="stylesheet" href="nietzsche.css?v=1">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=1">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
-<header class="nav" id="top">
-  <div class="wrap nav__in">
-    <a class="logo" href="#top" aria-label="Nietzsche home"><img class="logo__face" src="nietzsche.svg" width="32" height="32" alt="">Nietzsche</a>
-    <nav aria-label="Primary">
-      <ul class="nav__links">
-        <li><a href="#how">How it works</a></li>
-        <li><a href="#example">Example</a></li>
-        <li><a href="#install">Install</a></li>
-        <li><a href="#faq">FAQ</a></li>
-      </ul>
-    </nav>
-    <a class="gh" data-gh href="https://github.com/senavoh/nietzsche">
-      <svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
-      <span>Star on GitHub</span><span class="gh__count" data-stars></span>
-    </a>
+<!-- HERO -->
+<header class="hero" id="top">
+  <nav class="nav" aria-label="Primary">
+    <a class="wordmark" href="#top">nietzsche</a>
+    <ul>
+      <li><a href="#example">The example</a></li>
+      <li><a href="#how">How it works</a></li>
+      <li><a href="#install">Install</a></li>
+      <li><a class="star" data-gh href="https://github.com/senavoh/nietzsche">GitHub <span data-stars>★</span></a></li>
+    </ul>
+  </nav>
+
+  <div class="hero__copy">
+    <h1 class="hero__h1">The abyss<br><span>reviews back.</span></h1>
+    <p class="hero__sub">An agent skill that reads your repo, roasts it in aphorisms, then hands you three real fixes.</p>
+    <div class="cmd">
+      <code><span aria-hidden="true">$ </span><span data-cmd="npx">npx skills add senavoh/nietzsche</span></code>
+      <button class="copy" type="button" data-copy-from="npx" aria-label="Copy install command">Copy</button>
+    </div>
+    <p class="hero__meta">Claude Code · Codex · Cursor · Gemini CLI · OpenCode · No API key</p>
   </div>
+
+  <figure class="speech hero__speech" aria-live="off">
+    <blockquote data-cycle><b>§5.</b> <code>TARGETS="$*"</code> and then <code>for t in $TARGETS</code>. Your installer splits on whitespace like the last man splits the bill: without thinking.</blockquote>
+    <figcaption>From his roast of this very repo.</figcaption>
+  </figure>
+  <img class="hero__face" src="nietzsche.svg" width="860" height="860" alt="Woodcut of Nietzsche, glaring at your code">
 </header>
 
 <main id="main">
 
-<!-- HERO -->
-<section class="hero" aria-labelledby="hero-title">
-  <div class="hero__bg" aria-hidden="true"></div>
-  <div class="wrap hero__grid">
-    <div class="hero__copy">
-      <a class="pill" href="#example"><span class="pill__tag">New</span> Read its roast of itself <span aria-hidden="true">→</span></a>
-      <h1 id="hero-title" class="hero__title">Nietzsche</h1>
-      <p class="hero__tag">Your code, judged.<br><span>Then fixed.</span></p>
-      <p class="hero__sub">An open-source skill that turns Claude Code, Codex, Cursor and more into the harshest reviewer you've ever had. It reads your repo, roasts it in aphorisms, and ends with three real fixes you can ship today.</p>
-
-      <div class="cmd">
-        <code class="cmd__text"><span class="cmd__prompt" aria-hidden="true">$</span> <span data-cmd="npx">npx skills add senavoh/nietzsche</span></code>
-        <button class="copy" type="button" data-copy-from="npx" aria-label="Copy install command">
-          <svg viewBox="0 0 16 16" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.4" d="M5.5 5.5V3a1 1 0 0 1 1-1H13a1 1 0 0 1 1 1v6.5a1 1 0 0 1-1 1h-2.5M3 5.5h6.5a1 1 0 0 1 1 1V13a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6.5a1 1 0 0 1 1-1Z"/></svg>
-          <span>Copy</span>
-        </button>
-      </div>
-      <div class="ctas">
-        <a class="btn btn--dark" href="#example">Read a real roast</a>
-        <a class="btn btn--light" href="#how">How it works <span aria-hidden="true">→</span></a>
-      </div>
-    </div>
-
-    <div class="hero__visual" aria-label="A real roast, as your agent writes it">
-      <div class="window window--back portrait" aria-hidden="true">
-        <img src="nietzsche.svg" alt="" width="320" height="320">
-      </div>
-      <a class="window window--front" href="#example" aria-label="Read the full roast">
-        <span class="window__bar" aria-hidden="true"><i></i><i></i><i></i><span>NIETZSCHE.md</span></span>
-        <span class="window__frame roast roast--mini">
-          <span class="roast__title">Ecce Homo: How nietzsche Becomes What It Roasts</span>
-          <span class="roast__sub">Or: The Physician Who Has Not Healed Himself</span>
-          <span class="roast__p"><b>§1.</b> Here is a skill whose sacred law is “Tests: do they exist?” Then it walks into the town square with no tests, no evals and no CI.</span>
-          <span class="roast__p"><b>§5.</b> <code>TARGETS="$*"</code> and then <code>for t in $TARGETS</code>. Your installer splits on whitespace like the last man splits the bill: without thinking.</span>
-          <span class="roast__h">Three Fixes for the Overman</span>
-          <span class="roast__p"><b>1.</b> Keep the clone path <span class="roast__file">SKILL.md:17</span></span>
-          <span class="roast__p"><b>2.</b> Stop word-splitting install targets <span class="roast__file">install.sh:26</span></span>
-        </span>
-      </a>
-    </div>
-  </div>
+<!-- AGENTS: the black band -->
+<section class="band" aria-labelledby="agents-h">
+  <h2 id="agents-h" class="sr-only">Works with every agent</h2>
+  <p class="band__lead">Works in the agent you already use.</p>
+  <ul class="band__list">
+    <li>Claude Code</li><li>Codex</li><li>Cursor</li><li>Gemini CLI</li><li>OpenCode</li>
+  </ul>
+  <p class="band__fine">It's a skill, not a service. No API key, no account, nothing to host.</p>
 </section>
 
-<!-- AGENTS -->
-<section class="block" aria-labelledby="agents-title">
-  <div class="wrap split">
-    <div>
-      <h2 id="agents-title" class="h2">Works with<br><span>every agent.</span></h2>
-      <p class="lede">It's a skill, not a service. Your agent follows it on the model you already use, so there's no API key, no account and nothing to host.</p>
-      <a class="link" href="#install">Install guide <span aria-hidden="true">→</span></a>
-    </div>
-    <ul class="agents">
-      <li>Claude Code</li>
-      <li>Codex</li>
-      <li>Cursor</li>
-      <li>Gemini CLI</li>
-      <li>OpenCode</li>
-      <li>Any SKILL.md agent</li>
-    </ul>
-  </div>
-</section>
-
-<!-- VS -->
-<section class="block" id="vs" aria-labelledby="vs-title">
-  <div class="wrap">
-    <header class="head">
-      <h2 id="vs-title" class="h2">The roast is the hook.<br><span>The fixes are the point.</span></h2>
-      <p class="lede">A polite review tells you everything looks great. Nietzsche tells you what's wrong, points at the file, and checks his own fixes before he hands them over.</p>
-    </header>
-    <div class="vs">
-      <div class="vs__col vs__col--plain">
-        <p class="vs__who">A polite AI review</p>
-        <p class="vs__ask">“Can you review my repo?”</p>
-        <ul>
-          <li>“Overall this is a well-structured project!”</li>
-          <li>Generic advice that fits any codebase</li>
-          <li>Suggestions it never checked against the code</li>
-          <li>Twelve nitpicks, no priorities</li>
-          <li>Often starts editing your files</li>
-          <li>Forgotten by lunch</li>
-        </ul>
-      </div>
-      <div class="vs__col vs__col--wedge">
-        <p class="vs__who"><img class="vs__face" src="nietzsche.svg" alt="" width="22" height="22">Nietzsche</p>
-        <p class="vs__ask">“Roast my repo.”</p>
-        <ul>
-          <li>Honest, and funny enough to share</li>
-          <li>Every jab names a real file, line or commit</li>
-          <li>Each fix re-checked against the code first</li>
-          <li>Exactly three fixes, ranked by impact</li>
-          <li>Read only: it never touches your code</li>
-          <li>You'll remember it. So will your team</li>
-        </ul>
-      </div>
-    </div>
+<!-- VS: two speech panels -->
+<section class="sec paper" id="vs" aria-labelledby="vs-h">
+  <h2 id="vs-h" class="h2">The roast is the hook.<br><span>The fixes are the point.</span></h2>
+  <div class="vs">
+    <figure class="vs__polite">
+      <p class="vs__who">A polite AI review</p>
+      <blockquote>“Overall, this is a well-structured project! Consider adding more tests and improving documentation. Great work!”</blockquote>
+      <ul>
+        <li>Fits any codebase, so it says nothing about yours</li>
+        <li>Never checked against the code</li>
+        <li>Often starts editing your files</li>
+      </ul>
+    </figure>
+    <figure class="speech vs__him">
+      <p class="vs__who"><img src="nietzsche.svg" width="40" height="40" alt="">nietzsche</p>
+      <blockquote><b>§1.</b> Here is a skill whose sacred law is “Tests: do they exist?” Then it walks into the town square with no tests, no evals and no CI.</blockquote>
+      <ul>
+        <li>Every jab names a real file, line or commit</li>
+        <li>Three fixes, chosen first and re-checked in the code</li>
+        <li>Read only. It never touches your files</li>
+      </ul>
+    </figure>
   </div>
 </section>
 
 <!-- HOW -->
-<section class="block" id="how" aria-labelledby="how-title">
-  <div class="wrap">
-    <header class="head">
-      <h2 id="how-title" class="h2">How a roast<br><span>works.</span></h2>
-      <p class="lede">Open a project and say “roast my repo”, or name any GitHub repo. A roast takes a minute or two.</p>
-    </header>
-    <ol class="steps">
-      <li><span class="steps__n">1</span><h3>Read</h3><p>The tree, README, manifests, CI, entry points, tests and recent commits. Another repo gets a shallow clone into a temp folder.</p></li>
-      <li><span class="steps__n">2</span><h3>Choose</h3><p>Picks the three fixes first, ranked by impact: bugs and missing tests before naming nitpicks.</p></li>
-      <li><span class="steps__n">3</span><h3>Check</h3><p>Re-opens each file to confirm the problem is really there before it commits to a fix.</p></li>
-      <li><span class="steps__n">4</span><h3>Roast</h3><p>Four to seven aphorisms, each pointing at something real, then the fixes in a plain voice you can paste into an issue.</p></li>
-    </ol>
-  </div>
-</section>
-
-<!-- TITLE PAGE (live) -->
-<section class="block" id="title-page" aria-labelledby="tp-h">
-  <div class="wrap split">
-    <div>
-      <h2 id="tp-h" class="h2">Every roast<br><span>is a book.</span></h2>
-      <p class="lede">Each one gets a title that parodies his own: <i>Beyond Good and Evil Code</i>, <i>Twilight of the Idols</i>, <i>Ecce Homo</i>. Type a repo to see yours.</p>
-      <label class="tp-label" for="repo">Your repo</label>
-      <div class="cmd tp-input">
-        <span class="cmd__prompt" aria-hidden="true">github.com/</span>
-        <input id="repo" type="text" value="senavoh/nietzsche" spellcheck="false" autocomplete="off" aria-describedby="tp-note">
-      </div>
-      <p id="tp-note" class="fine">Only the title page happens here. The roast itself runs in your agent.</p>
-    </div>
-    <article class="titlepage" aria-live="polite">
-      <img src="nietzsche.svg" width="88" height="88" alt="">
-      <p class="titlepage__title" id="tp-title">Ecce Homo: How nietzsche Becomes What It Roasts</p>
-      <p class="titlepage__sub" id="tp-sub">Or: The Physician Who Has Not Healed Himself</p>
-      <p class="titlepage__by">by Friedrich Nietzsche, code reviewer</p>
-      <p class="titlepage__ed">Read-only edition · No files were harmed</p>
-    </article>
-  </div>
+<section class="sec red" id="how" aria-labelledby="how-h">
+  <h2 id="how-h" class="h2 h2--paper">How a roast works.</h2>
+  <ol class="steps">
+    <li><span class="steps__n">I</span><h3>He reads.</h3><p>The tree, README, manifests, CI, entry points, tests and recent commits. Another repo gets a shallow clone into a temp folder, deleted afterwards.</p></li>
+    <li><span class="steps__n">II</span><h3>He chooses.</h3><p>Three fixes, before a single joke. Ranked by impact: bugs and missing tests before naming nitpicks.</p></li>
+    <li><span class="steps__n">III</span><h3>He checks.</h3><p>Re-opens each file to confirm the problem is really there. No fix is handed over unverified.</p></li>
+    <li><span class="steps__n">IV</span><h3>He roasts.</h3><p>Four to seven aphorisms under a parody of one of his books, then the fixes in a plain voice you can paste into an issue.</p></li>
+  </ol>
 </section>
 
 <!-- EXAMPLE -->
-<section class="block" id="example" aria-labelledby="ex-title">
-  <div class="wrap">
-    <header class="head">
-      <h2 id="ex-title" class="h2">A real roast.<br><span>Of itself.</span></h2>
-      <p class="lede">The first repo it roasted was its own. This is the unedited output. Two of the three fixes were real bugs, and they shipped before the first push.</p>
-    </header>
-    <article class="report roast">
-      <p class="roast__title roast__title--lg">Ecce Homo: How nietzsche Becomes What It Roasts</p>
-      <p class="roast__sub">Or: The Physician Who Has Not Healed Himself</p>
-      <div class="roast__grid">
-        <div>
-          <p class="roast__p"><b>§1.</b> Here is a skill whose sacred law, in <code>SKILL.md</code>, is “Tests: do they exist, and do they test anything real?” Then it walks into the town square with no tests, no evals and no CI. The prophet preaches to the herd and never looks in a mirror.</p>
-          <p class="roast__p"><b>§3.</b> <code>SKILL.md</code> line 17 tells the agent to clone into <code>"$(mktemp -d)/repo"</code> and never writes down where that is. It opens a fresh abyss and forgets its address.</p>
-          <p class="roast__p"><b>§5.</b> <code>TARGETS="$*"</code> and then <code>for t in $TARGETS</code>. Your installer splits on whitespace like the last man splits the bill: without thinking.</p>
-          <p class="roast__p"><b>§7.</b> Grudgingly: the rules are good. The <code>${t:?}</code> guard on that <code>rm -rf</code> shows someone has stared into the abyss of <code>rm -rf /</code> and blinked first.</p>
-        </div>
-        <div class="roast__fixes">
-          <h3 class="label">Three Fixes for the Overman</h3>
-          <ol>
-            <li><b>Keep the clone path</b> <span class="badge badge--ok">✓ Shipped</span><span>Save the temp directory in a variable and print it, so the agent never has to guess where the repo went.</span></li>
-            <li><b>Stop word-splitting install targets</b> <span class="badge badge--ok">✓ Shipped</span><span>Loop over <code>"$@"</code> so paths with spaces, including a <code>$HOME</code> with one, survive.</span></li>
-            <li><b>Add a minimal CI and a regression fixture</b> <span class="badge badge--todo">On the roadmap</span><span>Run shellcheck, validate the plugin JSON, keep one golden roast of a repo with planted bugs.</span></li>
-          </ol>
-        </div>
-      </div>
-      <p class="roast__close">Physician, roast thyself: what does not kill your install script will at least make it quote its variables.</p>
-      <div class="report__foot">
-        <a class="btn btn--dark" href="https://github.com/senavoh/nietzsche/blob/main/examples/self-roast.md">Read all seven aphorisms</a>
-      </div>
-    </article>
+<section class="sec paper" id="example" aria-labelledby="ex-h">
+  <div class="ex__head">
+    <h2 id="ex-h" class="h2">A real roast.<br><span>Of itself.</span></h2>
+    <p class="lede">The first repo it roasted was its own. Unedited. Two of the three fixes were real bugs, and they shipped before the first push.</p>
   </div>
+  <article class="doc">
+    <p class="doc__file">NIETZSCHE.md</p>
+    <h3 class="doc__title">Ecce Homo: How nietzsche Becomes What It Roasts</h3>
+    <p class="doc__sub">Or: The Physician Who Has Not Healed Himself</p>
+    <div class="doc__grid">
+      <div class="doc__aph">
+        <p><b>§1.</b> Here is a skill whose sacred law, in <code>SKILL.md</code>, is “Tests: do they exist, and do they test anything real?” Then it walks into the town square with no tests, no evals and no CI. The prophet preaches to the herd and never looks in a mirror.</p>
+        <p><b>§3.</b> <code>SKILL.md</code> line 17 tells the agent to clone into <code>"$(mktemp -d)/repo"</code> and never writes down where that is. It opens a fresh abyss and forgets its address.</p>
+        <p><b>§5.</b> <code>TARGETS="$*"</code> and then <code>for t in $TARGETS</code>. Your installer splits on whitespace like the last man splits the bill: without thinking.</p>
+        <p><b>§7.</b> Grudgingly: the rules are good. The <code>${t:?}</code> guard on that <code>rm -rf</code> shows someone has stared into the abyss of <code>rm -rf /</code> and blinked first.</p>
+      </div>
+      <div class="doc__fixes">
+        <h4>Three Fixes for the Overman</h4>
+        <ol>
+          <li><b>Keep the clone path</b><span>Save the temp directory in a variable and print it, so the agent never guesses where the repo went.</span><i class="stamp">Shipped</i></li>
+          <li><b>Stop word-splitting install targets</b><span>Loop over <code>"$@"</code> so paths with spaces, even a <code>$HOME</code> with one, survive.</span><i class="stamp">Shipped</i></li>
+          <li><b>Add a minimal CI and a regression fixture</b><span>Run shellcheck, validate the plugin JSON, keep one golden roast of a repo with planted bugs.</span><i class="stamp stamp--todo">Pending</i></li>
+        </ol>
+      </div>
+    </div>
+    <p class="doc__close">Physician, roast thyself: what does not kill your install script will at least make it quote its variables.</p>
+  </article>
+  <p class="ex__more"><a class="btn btn--ink" href="https://github.com/senavoh/nietzsche/blob/main/examples/self-roast.md">Read all seven aphorisms</a></p>
+</section>
+
+<!-- TITLE PAGE (live) -->
+<section class="sec red tp" id="title-page" aria-labelledby="tp-h">
+  <div class="tp__copy">
+    <h2 id="tp-h" class="h2 h2--paper">Every roast<br><span>is a book.</span></h2>
+    <p class="lede lede--paper">Each one is titled after his own: <i>Beyond Good and Evil Code</i>, <i>Twilight of the Idols</i>, <i>Ecce Homo</i>. Type a repo to see yours.</p>
+    <label class="tp__label" for="repo">Your repo</label>
+    <div class="cmd cmd--input">
+      <span aria-hidden="true">github.com/</span>
+      <input id="repo" type="text" value="senavoh/nietzsche" spellcheck="false" autocomplete="off" aria-describedby="tp-note">
+    </div>
+    <p id="tp-note" class="tp__note">Only the title page happens here. The roast itself runs in your agent.</p>
+  </div>
+  <article class="titlepage" aria-live="polite">
+    <img src="nietzsche.svg" width="110" height="110" alt="">
+    <p class="titlepage__title" id="tp-title">Ecce Homo: How nietzsche Becomes What It Roasts</p>
+    <p class="titlepage__sub" id="tp-sub">Or: The Physician Who Has Not Healed Himself</p>
+    <p class="titlepage__by">by Friedrich Nietzsche, code reviewer</p>
+    <p class="titlepage__ed">Read-only edition. No files were harmed.</p>
+  </article>
 </section>
 
 <!-- INSTALL -->
-<section class="block" id="install" aria-labelledby="install-title">
-  <div class="wrap narrow">
-    <header class="head head--center">
-      <h2 id="install-title" class="h2">Install in<br><span>one command.</span></h2>
-      <p class="lede">No accounts, no API keys, nothing to run in the background.</p>
-    </header>
-    <div class="itabs">
-      <div class="seg seg--center" role="tablist" aria-label="Install method">
-        <button type="button" role="tab" id="tab-npx" aria-controls="panel-npx" aria-selected="true">npx</button>
-        <button type="button" role="tab" id="tab-plugin" aria-controls="panel-plugin" aria-selected="false" tabindex="-1">Claude Code</button>
-        <button type="button" role="tab" id="tab-curl" aria-controls="panel-curl" aria-selected="false" tabindex="-1">Script</button>
-        <button type="button" role="tab" id="tab-manual" aria-controls="panel-manual" aria-selected="false" tabindex="-1">Manual</button>
-      </div>
-      <div class="panel" role="tabpanel" id="panel-npx" aria-labelledby="tab-npx" tabindex="0">
-        <p>Installs the skill into the agents on your machine. Needs Node.js 22 or newer; on older versions use the Script tab.</p>
-        <div class="cmd"><code class="cmd__text"><span class="cmd__prompt" aria-hidden="true">$</span> <span data-cmd="npx">npx skills add senavoh/nietzsche</span></code><button class="copy" type="button" data-copy-from="npx" aria-label="Copy npx command"><span>Copy</span></button></div>
-      </div>
-      <div class="panel" role="tabpanel" id="panel-plugin" aria-labelledby="tab-plugin" tabindex="0" hidden>
-        <p>Inside Claude Code, add the marketplace, then install the plugin.</p>
-        <div class="cmd"><code class="cmd__text"><span data-cmd="pluginAdd">/plugin marketplace add senavoh/nietzsche</span></code><button class="copy" type="button" data-copy-from="pluginAdd" aria-label="Copy marketplace command"><span>Copy</span></button></div>
-        <div class="cmd"><code class="cmd__text"><span data-cmd="pluginInstall">/plugin install nietzsche@nietzsche</span></code><button class="copy" type="button" data-copy-from="pluginInstall" aria-label="Copy plugin install command"><span>Copy</span></button></div>
-      </div>
-      <div class="panel" role="tabpanel" id="panel-curl" aria-labelledby="tab-curl" tabindex="0" hidden>
-        <p>Copies the skill into every agent folder it finds. <a href="https://github.com/senavoh/nietzsche/blob/main/install.sh">Read the script first.</a></p>
-        <div class="cmd"><code class="cmd__text"><span class="cmd__prompt" aria-hidden="true">$</span> <span data-cmd="curl">curl -fsSL https://raw.githubusercontent.com/senavoh/nietzsche/main/install.sh | sh</span></code><button class="copy" type="button" data-copy-from="curl" aria-label="Copy script command"><span>Copy</span></button></div>
-      </div>
-      <div class="panel" role="tabpanel" id="panel-manual" aria-labelledby="tab-manual" tabindex="0" hidden>
-        <p>Clone the repo and copy the skill into your agent's skills folder.</p>
-        <div class="cmd"><code class="cmd__text"><span class="cmd__prompt" aria-hidden="true">$</span> <span data-cmd="clone">git clone https://github.com/senavoh/nietzsche</span></code><button class="copy" type="button" data-copy-from="clone" aria-label="Copy clone command"><span>Copy</span></button></div>
-        <div class="cmd"><code class="cmd__text"><span class="cmd__prompt" aria-hidden="true">$</span> <span data-cmd="manualCopy">cp -r nietzsche/skills/nietzsche ~/.claude/skills/</span></code><button class="copy" type="button" data-copy-from="manualCopy" aria-label="Copy copy command"><span>Copy</span></button></div>
-        <p class="fine">That path is for Claude Code. Use your own agent's skills folder.</p>
-      </div>
+<section class="sec ink" id="install" aria-labelledby="install-h">
+  <h2 id="install-h" class="h2 h2--paper">Install it.<br><span>Then ask for it.</span></h2>
+  <div class="itabs">
+    <div class="tabs" role="tablist" aria-label="Install method">
+      <button type="button" role="tab" id="tab-npx" aria-controls="panel-npx" aria-selected="true">npx</button>
+      <button type="button" role="tab" id="tab-plugin" aria-controls="panel-plugin" aria-selected="false" tabindex="-1">Claude Code</button>
+      <button type="button" role="tab" id="tab-curl" aria-controls="panel-curl" aria-selected="false" tabindex="-1">Script</button>
+      <button type="button" role="tab" id="tab-manual" aria-controls="panel-manual" aria-selected="false" tabindex="-1">Manual</button>
     </div>
-    <div class="ask">
-      <span class="label">Then ask your agent</span>
-      <p data-usage>“Roast my repo.”</p>
+    <div class="panel" role="tabpanel" id="panel-npx" aria-labelledby="tab-npx" tabindex="0">
+      <p>Installs the skill into every agent on your machine. Needs Node.js 22 or newer; on older versions use Script.</p>
+      <div class="cmd"><code><span aria-hidden="true">$ </span><span data-cmd="npx">npx skills add senavoh/nietzsche</span></code><button class="copy" type="button" data-copy-from="npx" aria-label="Copy npx command">Copy</button></div>
     </div>
+    <div class="panel" role="tabpanel" id="panel-plugin" aria-labelledby="tab-plugin" tabindex="0" hidden>
+      <p>Inside Claude Code, add the marketplace, then install the plugin.</p>
+      <div class="cmd"><code><span data-cmd="pluginAdd">/plugin marketplace add senavoh/nietzsche</span></code><button class="copy" type="button" data-copy-from="pluginAdd" aria-label="Copy marketplace command">Copy</button></div>
+      <div class="cmd"><code><span data-cmd="pluginInstall">/plugin install nietzsche@nietzsche</span></code><button class="copy" type="button" data-copy-from="pluginInstall" aria-label="Copy plugin install command">Copy</button></div>
+    </div>
+    <div class="panel" role="tabpanel" id="panel-curl" aria-labelledby="tab-curl" tabindex="0" hidden>
+      <p>Copies the skill into every agent folder it finds. <a href="https://github.com/senavoh/nietzsche/blob/main/install.sh">Read the script first.</a></p>
+      <div class="cmd"><code><span aria-hidden="true">$ </span><span data-cmd="curl">curl -fsSL https://raw.githubusercontent.com/senavoh/nietzsche/main/install.sh | sh</span></code><button class="copy" type="button" data-copy-from="curl" aria-label="Copy script command">Copy</button></div>
+    </div>
+    <div class="panel" role="tabpanel" id="panel-manual" aria-labelledby="tab-manual" tabindex="0" hidden>
+      <p>Clone the repo and copy the skill into your agent's skills folder. This path is for Claude Code.</p>
+      <div class="cmd"><code><span aria-hidden="true">$ </span><span data-cmd="clone">git clone https://github.com/senavoh/nietzsche</span></code><button class="copy" type="button" data-copy-from="clone" aria-label="Copy clone command">Copy</button></div>
+      <div class="cmd"><code><span aria-hidden="true">$ </span><span data-cmd="manualCopy">cp -r nietzsche/skills/nietzsche ~/.claude/skills/</span></code><button class="copy" type="button" data-copy-from="manualCopy" aria-label="Copy copy command">Copy</button></div>
+    </div>
+  </div>
+  <div class="ask">
+    <p class="ask__label">Then open a project and say</p>
+    <p class="ask__line">“Roast my repo.”</p>
+    <p class="ask__alt">Or “roast vercel/next.js”. Private repos work if <code>gh</code> is logged in.</p>
   </div>
 </section>
 
 <!-- FAQ -->
-<section class="block" id="faq" aria-labelledby="faq-title">
-  <div class="wrap split split--top">
-    <h2 id="faq-title" class="h2">Questions<br><span>and answers.</span></h2>
-    <div class="faq">
-      <details><summary>Will it change my code?</summary><p>No. It reads files and writes nothing unless you ask it to save the roast as <code>NIETZSCHE.md</code>. It never commits, pushes, runs your code or installs your dependencies.</p></details>
-      <details><summary>Is it free?</summary><p>Yes. It's open source under the MIT license and needs no API key. The only cost is your agent's own usage.</p></details>
-      <details><summary>Which agents does it work with?</summary><p>Claude Code, Codex, Cursor, Gemini CLI, OpenCode, and any agent that reads SKILL.md files.</p></details>
-      <details><summary>Can it roast someone else's repo?</summary><p>Yes. Say “roast owner/repo”. It makes a shallow clone into a temp folder, reads it there and deletes it afterwards. Private repos work if <code>gh</code> is logged in.</p></details>
-      <details><summary>Is it mean?</summary><p>To your code. Never to you: no jabs about anyone's identity, and it goes easy on a beginner's first project. If the code is good, it says so, grudgingly.</p></details>
-      <details><summary>Are the fixes real?</summary><p>It chooses the fixes before writing a single joke and re-opens each file to confirm the problem. If one is wrong, open an issue with the repo and the output.</p></details>
-      <details><summary>Where does my code go?</summary><p>Only to the model your agent already talks to, like any other request. This project runs no server and collects nothing.</p></details>
-    </div>
+<section class="sec paper faq" id="faq" aria-labelledby="faq-h">
+  <h2 id="faq-h" class="h2">Questions<br><span>he'll allow.</span></h2>
+  <div class="faq__list">
+    <details><summary>Will it change my code?</summary><p>No. It reads files and writes nothing unless you ask it to save the roast as <code>NIETZSCHE.md</code>. It never commits, pushes, runs your code or installs your dependencies.</p></details>
+    <details><summary>Is it free?</summary><p>Yes. Open source under the MIT license, no API key. The only cost is your agent's own usage.</p></details>
+    <details><summary>Is it mean?</summary><p>To your code. Never to you: no jabs about anyone's identity, and it goes easy on a beginner's first project. If the code is good, it says so, grudgingly.</p></details>
+    <details><summary>Are the fixes real?</summary><p>It picks them before writing a single joke and re-opens each file to confirm the problem. If one is wrong, open an issue with the repo and the output.</p></details>
+    <details><summary>Can it roast someone else's repo?</summary><p>Yes. It makes a shallow clone into a temp folder, reads it there and deletes it afterwards.</p></details>
+    <details><summary>Where does my code go?</summary><p>Only to the model your agent already talks to. This project runs no server and collects nothing.</p></details>
   </div>
 </section>
 
-<!-- SUPPORT -->
-<section class="block block--last" aria-labelledby="support-title">
-  <div class="wrap">
-    <div class="support">
-      <div>
-        <h2 id="support-title" class="h2">Survived<br><span>Nietzsche?</span></h2>
-        <p class="lede">It's completely open source. If he made your code better, or just made you laugh, a star helps other developers find him.</p>
-      </div>
-      <div class="ctas">
-        <a class="btn btn--dark" data-gh href="https://github.com/senavoh/nietzsche">Star on GitHub</a>
-        <a class="btn btn--light" data-gh-issues href="https://github.com/senavoh/nietzsche/issues">Share your roast</a>
-      </div>
+<!-- CLOSE -->
+<section class="close" aria-labelledby="close-h">
+  <img class="close__face" src="nietzsche.svg" width="420" height="420" alt="">
+  <div class="close__copy">
+    <h2 id="close-h" class="h2 h2--paper">Survived<br><span>Nietzsche?</span></h2>
+    <p class="lede lede--paper">If he made your code better, or just made you laugh, a star helps other developers find him.</p>
+    <div class="ctas">
+      <a class="btn btn--paper" data-gh href="https://github.com/senavoh/nietzsche">Star on GitHub</a>
+      <a class="btn btn--ghost" data-gh-issues href="https://github.com/senavoh/nietzsche/issues">Share your roast</a>
     </div>
   </div>
 </section>
@@ -290,15 +214,9 @@
 </main>
 
 <footer class="foot">
-  <div class="wrap foot__in">
-    <a class="logo" href="#top"><img class="logo__face" src="nietzsche.svg" width="32" height="32" alt="">Nietzsche</a>
-    <p>Open source · MIT · <span data-domain>nietzsche.dev</span></p>
-    <ul>
-      <li><a data-gh href="https://github.com/senavoh/nietzsche">GitHub</a></li>
-      <li><a href="https://github.com/senavoh/nietzsche/blob/main/examples/self-roast.md">The self-roast</a></li>
-      <li><a href="https://github.com/senavoh/nietzsche/blob/main/install.sh">install.sh</a></li>
-    </ul>
-  </div>
+  <span class="wordmark">nietzsche</span>
+  <span>Open source · MIT · nietzsche.dev</span>
+  <span><a data-gh href="https://github.com/senavoh/nietzsche">GitHub</a> · <a href="https://github.com/senavoh/nietzsche/blob/main/examples/self-roast.md">The self-roast</a> · <a href="https://github.com/senavoh/nietzsche/blob/main/install.sh">install.sh</a></span>
 </footer>
 
 <script src="main.js?v=1" defer></script>
