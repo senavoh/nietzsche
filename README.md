@@ -1,4 +1,10 @@
-# nietzsche
+<p align="center">
+  <img src="assets/nietzsche.svg" width="240" alt="Nietzsche, the code reviewer">
+</p>
+
+<h1 align="center">nietzsche</h1>
+
+<p align="center"><i>He has read your code. He is not impressed.</i></p>
 
 > "He who has a why to commit can bear almost any how."
 
