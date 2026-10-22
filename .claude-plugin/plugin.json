@@ -1,0 +1,10 @@
+{
+  "name": "nietzsche",
+  "version": "0.1.0",
+  "description": "Roast any repo in Nietzsche's voice, then get three real fixes.",
+  "author": { "name": "senavoh", "url": "https://github.com/senavoh" },
+  "homepage": "https://nietzsche.dev",
+  "repository": "https://github.com/senavoh/nietzsche",
+  "license": "MIT",
+  "keywords": ["code-review", "roast", "nietzsche", "humor", "refactoring"]
+}

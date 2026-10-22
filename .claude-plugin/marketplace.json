@@ -1,0 +1,11 @@
+{
+  "name": "nietzsche",
+  "owner": { "name": "senavoh", "url": "https://github.com/senavoh" },
+  "plugins": [
+    {
+      "name": "nietzsche",
+      "source": "./",
+      "description": "Roast any repo in Nietzsche's voice, then get three real fixes."
+    }
+  ]
+}
