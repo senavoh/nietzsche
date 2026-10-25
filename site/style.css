@@ -60,7 +60,7 @@ code { font-family: var(--mono); font-size: .84em; }
 .ink { background: var(--ink); color: var(--paper); }
 
 /* ---------- hero ---------- */
-.hero { position: relative; min-height: max(100svh, 860px); overflow: hidden; color: var(--paper); }
+.hero { position: relative; min-height: max(100svh, 700px); overflow: hidden; color: var(--paper); }
 .nav { position: absolute; z-index: 4; inset: 0 0 auto 0; display: flex; justify-content: space-between; align-items: center; padding: 22px var(--pad); }
 .nav .wordmark { color: var(--paper); }
 .nav ul { display: flex; gap: 26px; list-style: none; margin: 0; padding: 0; font-size: 17px; }
@@ -68,13 +68,13 @@ code { font-family: var(--mono); font-size: .84em; }
 .nav a:hover { text-decoration: underline; text-underline-offset: 4px; }
 .star { border: 2px solid var(--paper); padding: 6px 12px; }
 .star:hover { background: var(--paper); color: var(--ink) !important; text-decoration: none !important; }
-.hero__copy { position: absolute; z-index: 3; left: var(--pad); top: 50%; transform: translateY(-54%); max-width: 640px; }
+.hero__copy { position: absolute; z-index: 3; left: var(--pad); top: clamp(96px, calc(50vh - 300px), 240px); max-width: 640px; }
 .hero__h1 { font: clamp(48px, 6vw, 96px)/.9 var(--display); letter-spacing: -.035em; margin: 0; white-space: nowrap; }
 .hero__h1 span { color: var(--ink); }
 .hero__sub { font-size: 22px; line-height: 1.4; margin: 22px 0 26px; max-width: 30ch; }
 .hero__meta { margin: 16px 0 0; font-size: 15px; opacity: .92; }
 .hero__face { position: absolute; z-index: 1; right: -40px; bottom: -120px; width: min(62vw, 860px); }
-.hero__speech { position: absolute; z-index: 2; right: calc(min(62vw, 860px) - 150px); bottom: 7vh; width: 370px; }
+.hero__speech { position: absolute; z-index: 2; right: calc(min(62vw, 860px) - 150px); bottom: clamp(20px, 4vh, 60px); width: 370px; }
 .hero__speech::after { content: ""; position: absolute; right: -28px; top: 26px; border: 13px solid transparent; border-left: 22px solid var(--ink); }
 .hero__speech figcaption { margin-top: 10px; font-style: italic; color: var(--mute); font-size: 14px; }
 .hero__speech blockquote { transition: opacity .3s; min-height: 5.8em; }
