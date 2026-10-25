@@ -60,7 +60,7 @@ code { font-family: var(--mono); font-size: .84em; }
 .ink { background: var(--ink); color: var(--paper); }
 
 /* ---------- hero ---------- */
-.hero { position: relative; min-height: 100svh; overflow: hidden; color: var(--paper); }
+.hero { position: relative; min-height: max(100svh, 860px); overflow: hidden; color: var(--paper); }
 .nav { position: absolute; z-index: 4; inset: 0 0 auto 0; display: flex; justify-content: space-between; align-items: center; padding: 22px var(--pad); }
 .nav .wordmark { color: var(--paper); }
 .nav ul { display: flex; gap: 26px; list-style: none; margin: 0; padding: 0; font-size: 17px; }
